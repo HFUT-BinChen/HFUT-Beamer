@@ -10,7 +10,7 @@
 
 [1] 孙晓，Beamer­HFUT, https://github.com/sxhfut/Beamer-HFUT
 
-[2] 唐磊，TUH-beamer, http://www.tanglei.name/share-beamer-with-tsinghua-theme/
+[2] 唐磊，TUH-beamer, https://github.com/tl3shi/THUBeamer
 
 # 2. 又爱又恨的 Latex
    用过 Latex 肯定对又爱又恨，希望使用该模板的老师和同学能一起对模板进行改进提高。
