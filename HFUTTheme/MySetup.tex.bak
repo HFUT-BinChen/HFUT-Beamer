@@ -1,0 +1,49 @@
+% The following code uses the Theme saved in ./HFUTTheme/
+\makeatletter
+  \def\beamer@calltheme#1#2#3{%
+    \def\beamer@themelist{#2}
+    \@for\beamer@themename:=\beamer@themelist\do
+    {\usepackage[{#1}]{\beamer@themelocation/#3\beamer@themename}}}
+
+  \def\usefolder#1{
+    \def\beamer@themelocation{#1}
+  }
+  \def\beamer@themelocation{}
+\usefolder{./HFUTTheme/}
+\usetheme{HFUT}
+
+% Set some lengths
+\setbeamersize{text margin left=20pt,text margin right=20pt}
+\setbeamertemplate{itemize items}[square] 
+%\setbeamertemplate{itemize items}{\color{black}$\bullet$} 
+\setbeamerfont{page number in head/foot}{size=\scriptsize}
+\setbeamertemplate{footline}[myframe number]
+\setbeamerfont{page number in head/foot}{size=\tiny}		% Make the slide numbers smaller
+
+% Set some colors and fonts
+\setbeamercolor{alerted text}{fg=HFUTred}
+\setbeamerfont{alerted text}{}
+
+% This is to put a box around every slide. Uuseful for printouts
+\setbeamertemplate{background}{%
+\begin{tikzpicture}[overlay,remember picture]
+  \draw [line width=0.05mm]
+    ($ (current page.north west) + (0.0cm,-0.0cm) $)
+    rectangle
+    ($ (current page.south east) + (-0.0cm,0.0cm) $);
+\end{tikzpicture}%
+}
+
+% Math commands
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\eq}[1]{\begin{align*} #1 \end{align*}}
+\newcommand{\tr}[1]{\mathrm{#1}}
+\newcommand{\ie}{i.e.,~}
+\newcommand{\eg}{e.g.,~}
+\newcommand{\cf}{cf.~}
+\newcommand{\ms}[1]{\mathds{#1}}
+\newcommand{\sinc}[1]{\mathrm{sinc}\left(#1\right)}
+
+
+\definecolor{darkgreen}{rgb}{0,0.65,0}%

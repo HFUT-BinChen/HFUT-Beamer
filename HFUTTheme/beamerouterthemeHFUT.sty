@@ -1,0 +1,65 @@
+\mode<presentation>
+\defbeamertemplate*{frametitle}{HFUT}[1][]
+{
+ 
+     \definecolor{HFUTred}{HTML}{a8000c}  % main color!
+
+  \definecolor{tuered}{HTML}{FF0000}
+    \definecolor{tueScharlaken}{HTML}{C81919} % main color!
+    \definecolor{tuedarkblue}{HTML}{000000}
+    \definecolor{tueblue}{HTML}{101073} % old color
+    \definecolor{tuepink}{HTML}{D6004A}
+
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1cm]{frametitle} 
+  \begin{tikzpicture}[remember picture,overlay]
+  % Group logo
+  \fill[color=white] (0,0.2) rectangle (current page.north east);
+ \node [anchor=north east, inner sep=0pt]  at ([xshift = -0.15cm, yshift=-1pt]current page.north east){\includegraphics[height=.7cm]{./HFUTTheme/CI.jpg}}; 
+ % HFUT logo
+ \node [anchor=north west, inner sep=0pt]  at ([xshift = 10pt, yshift=-2pt]current page.north west){\includegraphics[height=.7cm]{./HFUTTheme/HFUT_Logo.png}}; 
+ % top line
+\draw[tueScharlaken] ([xshift = 0pt, yshift=-22pt]current page.north west) -- ([xshift = 0pt, yshift=-22pt]current page.north east);
+% bottom line and shape for page number
+\draw[fill=HFUTred,HFUTred]  ([xshift = 0pt, yshift=0pt]current page.south west) -- ([xshift = 20pt, yshift=0pt]current page.south west) -- ([xshift = 25pt, yshift=15pt]current page.south west) -- ([xshift = 0pt, yshift=15pt]current page.south west) -- cycle;
+% frame title
+ \node [anchor=north west , inner sep=0pt, tuedarkblue, font=\Large]  at ([xshift = 10pt, yshift=-28pt]current page.north west){\insertframetitle}; 
+
+
+\node [anchor=south, inner sep=0pt,white, font=\scriptsize]  at ([xshift = 11pt, yshift=3pt]current page.south west){{\insertframenumber/\inserttotalframenumber}};
+
+
+\node [anchor=west, inner sep=0pt,black,  font=\scriptsize]  at ([xshift = 160pt, yshift=8pt]current page.south west){{ \statustext}};
+\node [anchor=west, inner sep=0pt, black, font=\scriptsize]  at ([xshift = -80pt, yshift=8pt]current page.south east){{ \today}};
+
+
+  \end{tikzpicture}
+  \end{beamercolorbox}
+}
+  \newcommand{\statustext}{}
+\newcommand{\setstatustext}[1]{\renewcommand{\statustext}{#1}}
+
+%\newcommand{\frameofframes}{/}
+%\newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
+%\defbeamertemplate{footline}{myframe number}
+%{
+	
+%    \pgftext[at=\pgfpoint{0.1cm}{0.15cm},left,base]{\color{white}{\tiny \insertframenumber/\inserttotalframenumber}}
+%	\pgftext[at=\pgfpoint{.5 \linewidth}{0.2cm},base,base]{\tiny \statustext}
+%    \pgftext[at=\pgfpoint{\linewidth}{0.2cm},base,base]{\tiny \today}
+
+
+%    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+  %    leftskip=5cm,rightskip=5cm plus1fil]{}%
+    %  {\tiny‎\usebeamercolor[black]{\today}}%
+    %\end{beamercolorbox}%
+    %\begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      %leftskip=.cm,rightskip=.15cm plus1fil]{frame number}%
+      %{\tiny‎\usebeamercolor[white]{frame number}\insertframenumber\frameofframes\inserttotalframenumber}
+    %\end{beamercolorbox}%
+
+
+
+	
+%}
+
+\mode<all>

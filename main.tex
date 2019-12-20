@@ -1,0 +1,46 @@
+\documentclass[12pt,aspectratio=169]{beamer} % wide screen
+%\documentclass[12pt,aspectratio=43]{beamer} % regular screen  %当前版本模本4:3封面有些问题，需要后期优化
+% Load Packages
+\input{./HFUTTheme/MyPackages.tex}
+% Set up things
+\input{./HFUTTheme/MySetup.tex}
+
+% Input Mypackage
+\input{./myPackage.tex}
+
+
+
+
+% Title details
+\setbeamerfont{title}{size=\Large}
+\title{
+合肥工业大学-Latex模板\\
+{\small{(合肥工业大学XX学位论文答辩报告)}}
+}% use newline instead of \\ in title
+\author{{\footnotesize 任何建议和疑问？  \texorpdfstring{\\请联系:陈斌 \\ 邮箱：\textit{bin.chen@hfut.edu.cn}}{}}}
+\institute{{\footnotesize 某某组/实验室,\\ 计算机与信息学院,\\ 合肥工业大学,中国\\ \url{www.hfut.edu.cn}}}
+\setstatustext{陈斌, bin.chen@hfut.edu.cn}
+
+
+
+\begin{document}
+\graphicspath{{figures/}}
+
+
+
+
+
+  \include{./examples/ppt01}
+  \include{./examples/ppt04}
+
+  \include{./examples/example3}
+
+
+
+
+
+
+
+
+
+\end{document}

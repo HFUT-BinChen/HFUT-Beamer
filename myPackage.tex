@@ -1,0 +1,170 @@
+%导入一些用到的宏包
+\usepackage{graphicx}
+\usepackage{animate}
+\usepackage{csvsimple}
+
+
+
+% Chinese Package
+\usepackage{xeCJK} %导入中文包
+\setCJKmainfont{SimHei} %中文字体采用黑体
+\setCJKsansfont{simhei.ttf} % for \textsf  Microsoft YaHei
+%设置英文字体
+%设置英文字体
+\setsansfont{Microsoft YaHei}
+\setmainfont{Microsoft YaHei}
+
+
+%\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Kaiti Std}]{SimSun}
+
+
+%\setCJKmainfont[ItalicFont={楷体_GB2312}, BoldFont={黑体}]{宋体} %衬线字体 缺省中文字体为
+%\setCJKsansfont{黑体}        %serif是有衬线字体sans serif无衬线字体。
+%\setCJKmonofont{仿宋_GB2312} %中文等宽字体
+%%-----------------------xeCJK下设置中文字体------------------------------%
+\setCJKfamilyfont{song}{SimSun}                             %宋体 song
+\newcommand{\song}{\CJKfamily{song}}                        % 宋体   (Windows自带simsun.ttf)
+%\setCJKfamilyfont{xs}{NSimSun}                              %新宋体 xs
+%\newcommand{\xs}{\CJKfamily{xs}}
+%\setCJKfamilyfont{fs}{FangSong_GB2312}                      %仿宋2312 fs
+%\newcommand{\fs}{\CJKfamily{fs}}                            %仿宋体 (Windows自带simfs.ttf)
+\setCJKfamilyfont{kai}{KaiTi_GB2312}                        %楷体2312  kai
+\newcommand{\kai}{\CJKfamily{kai}}                          
+\setCJKfamilyfont{yh}{Microsoft YaHei}                    %微软雅黑 yh
+\newcommand{\yh}{\CJKfamily{yh}}
+\setCJKfamilyfont{hei}{SimHei}                                    %黑体  hei
+\newcommand{\hei}{\CJKfamily{hei}}                          % 黑体   (Windows自带simhei.ttf)
+\setCJKfamilyfont{msunicode}{Arial Unicode MS}            %Arial Unicode MS: msunicode
+\newcommand{\msunicode}{\CJKfamily{msunicode}}
+\setCJKfamilyfont{li}{LiSu}                                            %隶书  li
+\newcommand{\li}{\CJKfamily{li}}
+\setCJKfamilyfont{yy}{YouYuan}                             %幼圆  yy
+\newcommand{\yy}{\CJKfamily{yy}}
+\setCJKfamilyfont{xm}{MingLiU}                                        %细明体  xm
+\newcommand{\xm}{\CJKfamily{xm}}
+\setCJKfamilyfont{xxm}{PMingLiU}                             %新细明体  xxm
+\newcommand{\xxm}{\CJKfamily{xxm}}
+
+\setCJKfamilyfont{hwsong}{STSong}                            %华文宋体  hwsong
+\newcommand{\hwsong}{\CJKfamily{hwsong}}
+\setCJKfamilyfont{hwzs}{STZhongsong}                        %华文中宋  hwzs
+\newcommand{\hwzs}{\CJKfamily{hwzs}}
+\setCJKfamilyfont{hwfs}{STFangsong}                            %华文仿宋  hwfs
+\newcommand{\hwfs}{\CJKfamily{hwfs}}
+\setCJKfamilyfont{hwxh}{STXihei}                                %华文细黑  hwxh
+\newcommand{\hwxh}{\CJKfamily{hwxh}}
+\setCJKfamilyfont{hwl}{STLiti}                                        %华文隶书  hwl
+\newcommand{\hwl}{\CJKfamily{hwl}}
+\setCJKfamilyfont{hwxw}{STXinwei}                                %华文新魏  hwxw
+\newcommand{\hwxw}{\CJKfamily{hwxw}}
+\setCJKfamilyfont{hwk}{STKaiti}                                    %华文楷体  hwk
+\newcommand{\hwk}{\CJKfamily{hwk}}
+\setCJKfamilyfont{hwxk}{STXingkai}                            %华文行楷  hwxk
+\newcommand{\hwxk}{\CJKfamily{hwxk}}
+\setCJKfamilyfont{hwcy}{STCaiyun}                                 %华文彩云 hwcy
+\newcommand{\hwcy}{\CJKfamily{hwcy}}
+\setCJKfamilyfont{hwhp}{STHupo}                                 %华文琥珀   hwhp
+\newcommand{\hwhp}{\CJKfamily{hwhp}}
+
+\setCJKfamilyfont{fzsong}{Simsun (Founder Extended)}     %方正宋体超大字符集   fzsong
+\newcommand{\fzsong}{\CJKfamily{fzsong}}
+\setCJKfamilyfont{fzyao}{FZYaoTi}                                    %方正姚体  fzy
+\newcommand{\fzyao}{\CJKfamily{fzyao}}
+\setCJKfamilyfont{fzshu}{FZShuTi}                                    %方正舒体 fzshu
+\newcommand{\fzshu}{\CJKfamily{fzshu}}
+
+\setCJKfamilyfont{asong}{Adobe Song Std}                        %Adobe 宋体  asong
+\newcommand{\asong}{\CJKfamily{asong}}
+\setCJKfamilyfont{ahei}{Adobe Heiti Std}                            %Adobe 黑体  ahei
+\newcommand{\ahei}{\CJKfamily{ahei}}
+\setCJKfamilyfont{akai}{Adobe Kaiti Std}                            %Adobe 楷体  akai
+\newcommand{\akai}{\CJKfamily{akai}}
+
+%------------------------------设置字体大小------------------------%
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}     %初号
+\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont} %小初号
+\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}      %一号
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}      %二号
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}  %小二号
+\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}  %三号
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}%     四号
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}  %小四号
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}    %五号
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}   %小五号
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}  %六号
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}    %七号
+%------------------------------标题名称中文化-----------------------------%
+\renewcommand\abstractname{\hei 摘\ 要}
+\renewcommand\refname{\hei 参考文献}
+\renewcommand\figurename{\hei 图}
+\renewcommand\tablename{\hei 表}
+%------------------------------定理名称中文化-----------------------------%
+\newtheorem{dingyi}{\hei 定义~}[section]
+\newtheorem{dingli}{\hei 定理~}[section]
+\newtheorem{yinli}[dingli]{\hei 引理~}
+\newtheorem{tuilun}[dingli]{\hei 推论~}
+\newtheorem{mingti}[dingli]{\hei 命题~}
+\newtheorem{lizi}{{例}}
+
+
+%算法设置
+\usepackage{algorithm}  
+\usepackage{algorithmicx}  
+\usepackage{algpseudocode}
+\floatname{algorithm}{算法}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}} 
+\renewcommand{\algorithmicensure}{\textbf{输出:}}  
+
+\algrenewcommand{\algorithmiccomment}[1]{ $//$ #1}
+%代码设置
+\usepackage{fancybox}
+\usepackage{xcolor}
+\usepackage{times}
+\usepackage{listings}
+
+\renewcommand\lstlistingname{代码}
+\renewcommand\lstlistlistingname{代码}
+
+\lstset{framexleftmargin=1.4em,
+        xleftmargin=1.8em,
+        basicstyle=\ttfamily\small,
+        %frame=shadowbox, numberstyle=\tiny, breaklines=true,
+        frame=single,
+        numberstyle=\tiny, breaklines=true,
+        keywordstyle=\color{blue!70}\bfseries,
+        %commentstyle=\color{red!50!green!50!blue!50},
+        rulesepcolor=\color{red!20!green!20!blue!20},
+        numbers=none,fontadjust=true}
+\lstdefinelanguage{shader}{morekeywords={uniform, layout, uniform, vec2, vec3, vec4, in, out, gl_Position, dot, flat, int ,float, gl_VertexID, xyz, w, x, y, z, location, version, sampler2DRect, bgr, gl_FragData, texture2DRect, gl_TexCoord,for,xy},morecomment=[l]{//}}
+
+
+
+\usepackage{latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,xcolor,multicol}
+\usepackage{graphicx,wrapfig,fancybox}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+
+%\usepackage[backend=bibtex,style=IEEE,sorting=none]{biblatex} % [参考文献格式](https://www.sharelatex.com/blog/2013/07/31/getting-started-with-biblatex.html)
+\usepackage[backend=bibtex,sorting=none]{biblatex} % [参考文献格式](https://www.sharelatex.com/blog/2013/07/31/getting-started-with-biblatex.html) %mac IEEE not found
+%\usepackage{array}
+\usepackage{bm}
+\usepackage{caption}
+\usepackage[caption=false,font=scriptsize]{subfig}
+\usepackage{multirow}
+\usepackage{booktabs}
+
+
+
+\defbibheading{bibliography}[\bibname]{} %avoid printbibliography 自动生成目录
+\addbibresource{ref/papers-bib-in-google.bib}
+\addbibresource{ref/chinese-ref.bib}
+%\setbeamertemplate{bibliography item}{\insertbiblabel} %将列表中默认的丑陋的icon 改成数字,或者下面这个也行
+\setbeamertemplate{bibliography item}[text] % [ref](http://tex.stackexchange.com/questions/68080/beamer-bibliography-icon)
+%\setbeamertemplate{footline}[frame number]{}
+
+%\setframeofframes{of}
+
+\usepackage{boxedminipage} %for: bvh border
+\def\fourgraphicswidth{0.35} %0.3\textwidth
+
+
+

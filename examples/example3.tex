@@ -1,0 +1,258 @@
+
+\begin{frame}[t]{Outline
+大纲
+}
+\vspace{3ex}
+\only<1> {
+	\begin{enumerate}[leftmargin=1.1cm,rightmargin=0.2cm,itemsep=3ex,font=\normalfont\color{tueblue},label={\arabic*}]
+		\item Introduction介绍
+		\item  Background背景
+		\begin{itemize}
+		    \item 	A
+		    \item   B
+		    \item 	C
+		\end{itemize}
+		\item {Results }
+		\item  {Conclusions}
+	\end{enumerate}
+}
+%\only<2> {
+%	\begin{enumerate}[leftmargin=1.1cm,rightmargin=0.2cm,itemsep=3ex,font=\normalfont\color{tueblue},label={\arabic*}]
+%		\item Introduction
+%		\item \textcolor[rgb]{0.75,0.75,0.75} {Backgroud
+%		\begin{itemize}
+%		    \item 	A
+%		    \item   B
+%		    \item 	C
+%		\end{itemize}}
+%		\item \textcolor[rgb]{0.75,0.75,0.75} {Results }
+%		\item \textcolor[rgb]{0.75,0.75,0.75} {Conclusions}
+%	\end{enumerate}
+%}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}[t]{Blocks}
+\vspace{2ex}
+\begin{block}{block}
+	This is a regular block
+\end{block}
+\begin{alertblock}{alertblock}
+	This is an alert block
+\end{alertblock}
+\begin{exampleblock}{exampleblock}
+	This is an example block
+\end{exampleblock}
+\end{frame}
+
+
+
+\section{Directly plot data from file}
+
+\begin{frame}[containsverbatim]{Directly plot data from file (1)}
+	\begin{columns}
+		\begin{column}[]{.6\textwidth}
+			With tikz:
+			\begin{verbatim}
+			\begin{tikzpicture}[scale=.5]
+			\draw plot[mark=*] file {figs/bb2.txt};
+			\end{tikzpicture}
+			\end{verbatim}
+			\end{column}
+		\begin{column}[]{.4\textwidth}
+			\centering
+			\begin{tikzpicture}[scale=.5]
+			\draw plot[mark=*] 
+			file {figs/bb2.txt};
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+	With filename a text file with at least two columns (used as x and y coordinates). Lines starting with \% or \# are ignored.
+\end{frame}
+
+\begin{frame}[containsverbatim]{Directly plot data from file (2)}
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			Or with pgfplots:
+			\begin{verbatim}
+			\usepackage{pgfplots}
+			...
+			
+			\begin{tikzpicture} 
+			\begin{axis}[]
+			\addplot [color=black,no marks,thick] file {filename};
+			\end{axis}
+			\end{tikzpicture}
+			\end{verbatim}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{tikzpicture} 
+			\begin{axis}[
+			width=1\textwidth,
+			height=0.8\textwidth,
+			every axis/.append style={font=\footnotesize},
+			xlabel={$t$~[s]},
+			ylabel= {Waveform~[V]},
+			ylabel near ticks,
+			xlabel near ticks,
+			ymin=-4,ymax=4,
+			xmin=0,xmax=5,
+			ytick={-6,-4,...,6},
+			grid=both,  
+			legend style={legend pos=north east,font=\scriptsize,legend cell align=left,row sep=-0.5ex}
+			]
+			\addplot [color=black,no marks,thick] file {figs/bb2.txt};\addlegendentry{$u(t)$};
+			\end{axis}
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Generating Tables}
+
+\begin{frame}[containsverbatim]{Directly generate table from file}
+	\begin{verbatim}
+	\begin{tabular}{l|c}%
+	Person & Grade                                % specify table head
+	\csvreader[head to column names]{filename}{}  % use head of csv as column names
+	{\\\hline\givenname\ \name & \grade}          % specify columns 
+	\end{tabular}
+	\end{verbatim}
+	 \begin{tabular}{l|c}%
+		\bfseries Person & \bfseries Grade % specify table head
+		\csvreader[head to column names]{figs/table.csv}{}% use head of csv as column names
+		{\\\hline\givenname\ \name & \grade}% specify your coloumns here
+	\end{tabular}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{MATLAB script to generate table}
+ The matlab script 
+%\href{run: documentation/generatetable.m}{generatetable.m} (in the documentation subfolder),\\
+can generates the LaTeX description for the following table:\\
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{ccccccc}
+		\hline
+		
+		\hline
+		$t$ &  $m$ & $n$ & $k$ & $R_\text{BCH}$ & $R_\text{SCC}$ & $b$ \\ 
+		\hline 
+		2 & 5 & 32 & 21 & 0.66& 0.31 & 256 \\ 
+		2 & 6 & 64 & 51 & 0.80& 0.59 & 1024 \\ 
+		2 & 7 & 128 & 113 & 0.88& 0.77 & 4096 \\ 
+		2 & 8 & 256 & 239 & 0.93& 0.87 & 16384 \\ 
+		2 & 9 & 512 & 493 & 0.96& 0.93 & 65536 \\ 
+		\hline
+
+		\hline \end{tabular}
+	\caption{Parameters for $t=2$} 
+\end{table} 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Animated Figures}
+%
+%\begin{frame}[containsverbatim]{Animated Figures (1)}
+%	\begin{verbatim}
+%	\usepackage{animate}
+%	...
+%	\animategraphics[<options>]{<framerate>}{<filename>}{<first>}{<last>}
+%	\end{verbatim}
+%	Some options:
+%	\begin{itemize}
+%		\item \textit{autoplay}: automatically start the animation (otherwise starts after click).
+%		\item \textit{loop}: continuously loop through the animation.
+%		\item \textit{step}: show next frame on mouse click.
+%		\item \textit{scale=}, or \textit{width=}: this should be obvious.
+%	\end{itemize}
+%	You can also use three different ways to generate the frames of the animation, see the following slides.
+%\end{frame}
+%
+%\begin{frame}[containsverbatim]{Animated Figures (2)}
+%	Option 1: Frames are separate figures, i.e. \textit{frame00.png}, \textit{frame01.png}, etc
+%	\begin{verbatim}
+%	\animategraphics[loop,autoplay,scale=.2]{1}{figs/giraffe}{00}{03}
+%	\end{verbatim}
+%	\centering
+%	\animategraphics[loop,autoplay,scale=.2]{1}{figs/giraffe}{00}{03}
+%\end{frame}
+%
+%
+%\begin{frame}[containsverbatim]{Animated Figures (3)}
+%	Option 2:	Frames are slides of a separate pdf file.
+%	\begin{columns}
+%		\begin{column}{.6\textwidth}
+%			\begin{verbatim}
+%			\animategraphics[step]{1}{figs/animatepattern}{}{}
+%			\end{verbatim}
+%			You can create the separate pdf file with beamer. The example was created using the \textit{preview} package, s.t. slides are to fit the image.	\\
+%			\begin{verbatim}
+%			\documentclass{beamer}
+%			\usepackage[active,tightpage]{preview}
+%			\PreviewEnvironment{tikzpicture}
+%			...
+%			\begin{document}
+%			\begin{frame}
+%			..
+%			\end{frame}
+%			\end{document}
+%			\end{verbatim}
+%		\end{column}
+%		\begin{column}{.4\textwidth}
+%			\centering
+%			\animategraphics[step]{1}{figs/animatepattern}{}{} \\
+%			You have to click the Figure to make it change (option: \textit{step}).
+%		\end{column}
+%	\end{columns}
+%\end{frame}
+%\begin{frame}[containsverbatim]{Animated Figures (4)}
+%	Option 3: You can even define the frames in inline code !
+%	\begin{columns}
+%		\begin{column}{.6\textwidth}
+%			\begin{verbatim}
+%			\begin{animateinline}[autoplay,loop]{.5}
+%				{\color{red}{Inline animation!}}
+%				\newframe
+%				{\color{blue}{Inline animation!}}
+%				\newframe
+%				{\color{green}{click to continue!}}
+%				\newframe*  % * = click to continue to next frame
+%				{\color{yellow}{Inline animation!}}
+%				\newframe
+%			\end{animateinline}
+%			\end{verbatim}
+%		\end{column}
+%		\begin{column}{.4\textwidth}
+%			\centering
+%			\begin{animateinline}[autoplay,loop]{.5}
+%			{\color{red}{Inline animation!}}
+%			\newframe
+%			{\color{blue}{Inline animation!}}
+%			\newframe
+%			{\color{green}{click to continue!}}
+%			\newframe*  % * = click to continue to next frame
+%			{\color{yellow}{Inline animation!}}
+%			\newframe
+%			\end{animateinline}
+%		\end{column}
+%	\end{columns}
+%% 	\vspace{1cm}
+%% 	For more information about the \textbf{animation package}, see the \href{run: documentation/package_animate.pdf}{documentation.pdf} (in the documentation subfolder).
+%\end{frame}

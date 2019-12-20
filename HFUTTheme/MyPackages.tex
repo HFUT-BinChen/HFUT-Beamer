@@ -1,0 +1,28 @@
+\usepackage{tikz}
+\usepackage{pgfplots}
+\hypersetup{colorlinks=true,urlcolor=cyan}
+\usepackage{lmodern}
+%\usepackage[justification=centering,font = scriptsize,labelfont=scriptsize]{caption}
+%\usepackage[justification=centering,font = scriptsize,labelfont=scriptsize]{subcaption}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{pgfplots.groupplots}
+\usepackage{tikz}
+\usepackage[english]{babel}
+\usetikzlibrary{positioning,shadows,shapes,fit,arrows,backgrounds}
+\usefonttheme{professionalfonts}	% Stil uses sans serif, but this makes equations look nicer (not sans serif)
+\usepackage{dsfont}
+\usepackage{psfrag}
+\usepackage{empheq}
+\usepackage[many]{tcolorbox} 			% For boxes
+\usetikzlibrary{backgrounds,calc}
+
+\setbeamertemplate{itemize items}{\color{black}$\bullet$} 
+\usepackage{enumitem} % To be manage lists: spaces, bullets, etc.  
+\def\labelenumi{\theenumi}
+\setitemize{label=\usebeamerfont*{itemize item}%
+\usebeamercolor[fg]{itemize item}
+\usebeamertemplate{itemize item}}
+
+% Break slide
+\newcommand{\breakslide}[0]{\begin{frame}{~}\begin{center}\alert{\Large{15 min BREAK!}}\end{center}\end{frame}}
+\newcommand{\partslide}[1]{\begin{frame}{~}\begin{center}\alert{\Large{#1}}\end{center}\end{frame}}
