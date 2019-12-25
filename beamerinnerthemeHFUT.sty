@@ -1,0 +1,100 @@
+\mode<presentation>
+
+
+  \definecolor{HFUTred}{HTML}{a8000c} % main color!
+
+
+
+
+  \definecolor{tuered}{HTML}{FF0000}
+    \definecolor{tueScharlaken}{HTML}{C81919} % main color!
+    \definecolor{tuedarkblue}{HTML}{000000}
+    \definecolor{tueblue}{HTML}{101073} % old color
+    \definecolor{tuepink}{HTML}{D6004A}
+
+
+ 
+% to make blocks more colorful LK
+\setbeamercolor{block title}{use=structure,fg=white,bg=HFUTred}
+\setbeamercolor{block body}{use=structure,fg=black,bg=HFUTred!5}
+\setbeamercolor{block title alerted}{use=structure,fg=white,bg=tueblue}
+\setbeamercolor{block body alerted}{use=structure,fg=black,bg=tueblue!5}
+\setbeamercolor{block title example}{use=structure,fg=white,bg=tuedarkblue}
+\setbeamercolor{block body example}{use=structure,fg=black,bg=tuedarkblue!5}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+% change color for itemize
+\setbeamercolor{itemize item}{fg=HFUTred} 
+\setbeamercolor{itemize subitem}{fg=HFUTred}
+
+
+
+
+
+
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+   \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+\fill[color=white] (0,7) rectangle (\the\paperwidth,\the\paperheight);
+  \ifnum\thepage>1\relax%
+   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+   \fi
+  \end{tikzpicture}
+}
+
+
+
+
+% Title page}
+\defbeamertemplate*{title page}{HFUT}[1][]
+{   
+\vskip1.5cm%
+  \begingroup
+   \begin{columns}
+   \column{0.4\paperwidth}% Create an empty row 
+   \mbox{}
+   \column{0.60\paperwidth}% in the second row put the title
+
+\begin{beamercolorbox}[wd=0.6\paperwidth,center, sep=10pt,#1]{title page header}
+	\usebeamerfont{title}\inserttitle\par%
+	\end{beamercolorbox}%
+    \vskip0.5cm%
+    \begin{beamercolorbox}[wd=0.6\paperwidth,center, #1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.5cm%
+     \begin{beamercolorbox}[wd=0.6\paperwidth,center, #1]{institute}
+      \usebeamerfont{author}\insertinstitute
+    \end{beamercolorbox}
+    \vskip0.5cm%
+    %\begin{beamercolorbox}[wd=0.65\paperwidth, center, #1]{date}
+    %  \usebeamerfont{institute}\insertdate%
+    %\end{beamercolorbox}
+    
+   \end{columns}
+  \endgroup
+  \vfill    
+  \begin{tikzpicture}[remember picture,overlay] 
+\begin{scope}[on background layer]
+\node [anchor=west, inner sep=0pt] at ([xshift=-110pt, yshift=-11.9pt]current page.west){\includegraphics[height=0.805\paperheight]{./HFUTTheme/HFUT.jpg}};
+\end{scope}
+    % HFUT logo
+	\node [anchor=south west, inner sep=0pt] at ([xshift=20pt, yshift=-35pt]current page.north west){\includegraphics[height=1.1cm]{./HFUTTheme/HFUT_Logo.png}};
+	% Group logo
+	 \node [anchor=north east, inner sep=0pt]  at ([xshift = -0.3cm, yshift=-0.18cm]current page.north east){\includegraphics[height=0.9cm]{./HFUTTheme/HFUTci.png}}; 
+	 % top and bottom lines
+	\draw[HFUTred] ([xshift = 0pt, yshift=-35pt]current page.north west) -- ([xshift = 0pt, yshift=-35pt]current page.north east);
+	\draw[HFUTred] ([xshift = 0pt, yshift=13pt]current page.south west) -- ([xshift = 0pt, yshift=13pt]current page.south east);
+	% Red shape
+	%\draw[fill=HFUTred,HFUTred]  ([xshift = 0pt, yshift=-35pt]current page.north west) -- ([xshift = 0pt, yshift=0pt]current page.south west) -- ([xshift = 40pt, yshift=0pt]current page.south west) -- ([xshift = 114pt, yshift=-35pt]current page.north west) -- cycle;
+       % white shape
+	\draw[fill=white,white]  ([xshift = 190pt, yshift=-35.5pt]current page.north west) -- ([xshift = 202.5pt, yshift=-35.5pt]current page.north west) -- ([xshift = 202.5pt, yshift=13.4pt]current page.south west) -- ([xshift =130pt, yshift=13.4pt]current page.south west) -- cycle;
+
+%\node [anchor=south west, inner sep=0pt] at ([xshift=-50pt, yshift=20pt]current page.south west){\includegraphics[height=7cm]{./HFUTTheme/hfut.jpeg}};
+	
+	
+	% slogan HFUT 
+	\node [anchor=west, inner sep=0pt, tuedarkblue, font=\scriptsize]  at ([xshift = 20pt, yshift=6pt]current page.south west){{\textbf{厚德、笃学、崇实、尚新 }}};
+ 	\end{tikzpicture}
+          }
+\mode<all>
