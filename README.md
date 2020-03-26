@@ -1,6 +1,6 @@
 # HFUT-Beamer
 
-![首页效果图](https://github.com/HFUT-BinChen/HFUT-Beamer/blob/master/beamer page1.png)
+![首页效果图](https://github.com/HFUT-BinChen/HFUT-Beamer/blob/master/BeamerPage1.png)
 
 # 1. HFUT“不唯一”、“非官方”beamer 模板
 - 该模板为合肥工业大学“不唯一”、“非官方”beamer 幻灯片模板。如我院孙晓老师所说“在使用 PPT 的过程中，确实难以忍受排版的痛苦”[1]。本人使用在荷兰做研究期间所在的荷兰埃因霍温理工大学ICT-LAB制作的ICTLAB-TUe-beamer和TUH-beamer[2] 的工作，制作了该模板。
