@@ -35,4 +35,4 @@
 
 工作单位：合肥工业大学 计算机与信息学院 
 
-个人主页：http://ci.hfut.edu.cn/2018/1008/c3996a180897/page.htm
+个人主页：http://faculty.hfut.edu.cn/BinChen/zh_CN/index/240177/list/index.htm
